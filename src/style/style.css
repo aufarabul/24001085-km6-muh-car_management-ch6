@@ -1,0 +1,8 @@
+.car-img {
+  width: 500px; /* Adjust width as needed */
+  height: 250px; /* Adjust height as needed */
+  object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+}
+li {
+  list-style-type: none;
+}
