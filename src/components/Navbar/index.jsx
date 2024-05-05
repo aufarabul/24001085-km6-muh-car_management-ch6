@@ -38,6 +38,9 @@ const NavbarComponent = () => {
 
             {user ? (
               <>
+                <Nav.Link as={Link} to="/profile">
+                  {user?.name}
+                </Nav.Link>
                 {!shouldHideButtons && (
                   <>
                     <Nav.Link as={Link} to="/addcar">
@@ -45,14 +48,10 @@ const NavbarComponent = () => {
                     </Nav.Link>
                   </>
                 )}
-
-                <Nav.Link as={Link} to="/profile">
-                  {user?.name}
-                </Nav.Link>
-
                 <Nav.Link
                   onClick={() => {
-                    localStorage.removeItem("token") && navigate("/");
+                    localStorage.removeItem("token");
+                    window.location = "/";
                   }}
                 >
                   Logout
