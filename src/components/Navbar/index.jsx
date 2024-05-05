@@ -52,8 +52,7 @@ const NavbarComponent = () => {
 
                 <Nav.Link
                   onClick={() => {
-                    localStorage.removeItem("token");
-                    navigate("/");
+                    localStorage.removeItem("token") && navigate("/");
                   }}
                 >
                   Logout
