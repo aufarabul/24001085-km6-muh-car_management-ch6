@@ -10,44 +10,26 @@ const NavbarComponent = () => {
   const navigate = useNavigate();
 
   const { user, token } = useSelector((state) => state.auth);
+  const authorizedRoles = ["admin", "superadmin"]; // Replace with your authorized roles
+  const shouldHideButtons = user?.role && !authorizedRoles.includes(user.role);
 
   useEffect(() => {
     // get user profile if we have token
     dispatch(getProfile());
   }, [dispatch, token]);
-  // const getProfile = async (token) => {
-  //   let config = {
-  //     method: "get",
-  //     maxBodyLength: Infinity,
-  //     url: `${import.meta.env.VITE_BACKEND_API}/api/auth/profile`,
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await axios.request(config);
-  //     const { data } = response.data;
-
-  //     // set user by response
-  //     setUser(data);
-  //   } catch (error) {
-  //     // because token is not valid, we will delete it from local storage
-  //     setUser(null);
-  //     localStorage.removeItem("token");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   // get user profile if we have token
-  //   const token = localStorage.getItem("token");
-  //   if (token) {
-  //     getProfile(token);
-  //   }
-  // }, []);
+  useEffect(() => {
+    const authorizedRoles = ["admin", "superadmin"]; // Replace with your authorized roles
+    const shouldHideButtons =
+      user?.role && !authorizedRoles.includes(user.role);
+  }, [user]);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar
+      expand="lg"
+      className="bg-body-primary shadow p-3 mb-5 bg-body-primary rounded"
+      bg="primary"
+      data-bs-theme="dark"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
           Kampus Merdeka
@@ -58,8 +40,16 @@ const NavbarComponent = () => {
             <Nav.Link as={Link} to="/">
               Home
             </Nav.Link>
+
             {user ? (
               <>
+                {!shouldHideButtons && (
+                  <>
+                    <Nav.Link as={Link} to="/addcar">
+                      Add Cars
+                    </Nav.Link>
+                  </>
+                )}
                 <Nav.Link as={Link} to="/profile">
                   {user?.name}
                 </Nav.Link>
@@ -90,3 +80,34 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
+
+// const getProfile = async (token) => {
+//   let config = {
+//     method: "get",
+//     maxBodyLength: Infinity,
+//     url: `${import.meta.env.VITE_BACKEND_API}/api/auth/profile`,
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//     },
+//   };
+
+//   try {
+//     const response = await axios.request(config);
+//     const { data } = response.data;
+
+//     // set user by response
+//     setUser(data);
+//   } catch (error) {
+//     // because token is not valid, we will delete it from local storage
+//     setUser(null);
+//     localStorage.removeItem("token");
+//   }
+// };
+
+// useEffect(() => {
+//   // get user profile if we have token
+//   const token = localStorage.getItem("token");
+//   if (token) {
+//     getProfile(token);
+//   }
+// }, []);

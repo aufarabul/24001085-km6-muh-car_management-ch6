@@ -1,17 +1,17 @@
-import RegisterComponent from "../../components/Register";
+import AddCarComponent from "../../components/AddCar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
-const Register = () => {
+const AddCars = () => {
   return (
     <>
       <Row>
         <Col md={6} className="offset-md-3">
           <Card className="shadow p-3 mb-5 bg-body-primary rounded">
-            <Card.Header>Register</Card.Header>
+            <Card.Header>Add Car</Card.Header>
             <Card.Body>
-              <RegisterComponent />
+              <AddCarComponent />
             </Card.Body>
           </Card>
         </Col>
@@ -20,4 +20,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default AddCars;

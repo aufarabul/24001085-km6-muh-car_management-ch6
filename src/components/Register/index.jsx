@@ -67,7 +67,10 @@ function Register() {
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
+      <Form
+        onSubmit={onSubmit}
+        className="shadow p-3 mb-5 bg-body-primary rounded"
+      >
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Name *</Form.Label>
           <Form.Control

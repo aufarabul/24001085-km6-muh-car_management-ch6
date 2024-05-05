@@ -6,6 +6,8 @@ import { Provider } from "react-redux";
 import Navbar from "./components/Navbar";
 import Home from "./pages/home";
 import Login from "./pages/login";
+import AddCar from "./pages/addCars";
+import UpdateCar from "./pages/UpdateCars";
 import Register from "./pages/register";
 import CarDetail from "./pages/cars/details";
 
@@ -15,7 +17,7 @@ import Profile from "./pages/profile";
 import Protected from "./components/Protected";
 import NonProtected from "./components/NonProtected";
 import store from "./redux/store";
-
+const backgroundColor = "#f5f5f5";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -68,6 +70,28 @@ const router = createBrowserRouter([
         <Navbar />
         <Container className="mt-5">
           <CarDetail />
+        </Container>
+      </Protected>
+    ),
+  },
+  {
+    path: "/addcar",
+    element: (
+      <Protected roles={["admin", "superadmin"]}>
+        <Navbar />
+        <Container className="mt-5">
+          <AddCar />
+        </Container>
+      </Protected>
+    ),
+  },
+  {
+    path: "/update/cars/:id",
+    element: (
+      <Protected roles={["admin", "superadmin"]}>
+        <Navbar />
+        <Container className="mt-5">
+          <UpdateCar />
         </Container>
       </Protected>
     ),

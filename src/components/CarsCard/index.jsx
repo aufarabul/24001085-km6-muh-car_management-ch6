@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 const CarsCard = ({ car }) => {
   return (
     <Col className="cars-card" md={3} sm={6} as={Link} to={`/cars/${car?.id}`}>
-      <Card className="m-2" style={{ width: "18rem" }}>
+      <Card
+        className="m-2 shadow p-3 mb-5 bg-body-tertiary rounded"
+        style={{ width: "18rem" }}
+      >
         <Card.Img
           className="car-img"
           variant="top"

@@ -6,8 +6,8 @@ import Card from "react-bootstrap/Card";
 const Login = () => {
   return (
     <Row>
-      <Col md={6} className="offset-md-3">
-        <Card>
+      <Col md={6} className="offset-md-3 ">
+        <Card className="shadow p-3 mb-5 bg-body-primary rounded">
           <Card.Header>Login</Card.Header>
           <Card.Body>
             <LoginComponent />
