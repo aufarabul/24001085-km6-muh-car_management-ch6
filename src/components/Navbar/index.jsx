@@ -45,13 +45,15 @@ const NavbarComponent = () => {
                     </Nav.Link>
                   </>
                 )}
+
                 <Nav.Link as={Link} to="/profile">
                   {user?.name}
                 </Nav.Link>
+
                 <Nav.Link
                   onClick={() => {
                     localStorage.removeItem("token");
-                    window.location = "/";
+                    navigate("/");
                   }}
                 >
                   Logout
