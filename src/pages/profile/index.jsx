@@ -7,34 +7,6 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-
-  // const getProfile = async (token) => {
-  //   setIsLoading(true);
-
-  //   let config = {
-  //     method: "get",
-  //     maxBodyLength: Infinity,
-  //     url: `${import.meta.env.VITE_BACKEND_API}/api/auth/profile`,
-  //     headers: {
-  //       Authorization: `Bearer ${token}`,
-  //     },
-  //   };
-
-  //   try {
-  //     const response = await axios.request(config);
-  //     const { data } = response.data;
-
-  //     // set user by response
-  //     setUser(data);
-  //   } catch (error) {
-  //     // because token is not valid, we will delete it from local storage
-  //     setUser(null);
-  //     localStorage.removeItem("token");
-  //   }
-
-  //   setIsLoading(false);
-  // };
-
   useEffect(() => {
     // get profile
     dispatch(getProfile(null, null, null));

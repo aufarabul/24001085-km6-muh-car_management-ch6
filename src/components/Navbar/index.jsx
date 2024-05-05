@@ -17,11 +17,6 @@ const NavbarComponent = () => {
     // get user profile if we have token
     dispatch(getProfile());
   }, [dispatch, token]);
-  useEffect(() => {
-    const authorizedRoles = ["admin", "superadmin"]; // Replace with your authorized roles
-    const shouldHideButtons =
-      user?.role && !authorizedRoles.includes(user.role);
-  }, [user]);
 
   return (
     <Navbar
@@ -80,34 +75,3 @@ const NavbarComponent = () => {
 };
 
 export default NavbarComponent;
-
-// const getProfile = async (token) => {
-//   let config = {
-//     method: "get",
-//     maxBodyLength: Infinity,
-//     url: `${import.meta.env.VITE_BACKEND_API}/api/auth/profile`,
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//     },
-//   };
-
-//   try {
-//     const response = await axios.request(config);
-//     const { data } = response.data;
-
-//     // set user by response
-//     setUser(data);
-//   } catch (error) {
-//     // because token is not valid, we will delete it from local storage
-//     setUser(null);
-//     localStorage.removeItem("token");
-//   }
-// };
-
-// useEffect(() => {
-//   // get user profile if we have token
-//   const token = localStorage.getItem("token");
-//   if (token) {
-//     getProfile(token);
-//   }
-// }, []);

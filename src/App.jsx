@@ -17,7 +17,7 @@ import Profile from "./pages/profile";
 import Protected from "./components/Protected";
 import NonProtected from "./components/NonProtected";
 import store from "./redux/store";
-const backgroundColor = "#f5f5f5";
+
 const router = createBrowserRouter([
   {
     path: "/",

@@ -27,9 +27,8 @@ export const getCars = () => async (dispatch, getState) => {
       toast.error("Invalid authentication token. Please login again.");
     } else {
       // Handle other errors
-      toast.error(error?.response?.data?.message || "An error occurred.");
+      toast.error(error?.response?.data?.message);
     }
-    // toast.error(error?.response?.data?.message);
   }
 };
 
@@ -90,9 +89,6 @@ export const AddCar =
 
       console.log(JSON.stringify(response.data));
 
-      // redirect to home
-      // navigate("/"); // it will be not consistent, so alternative we use window until we used the state management
-      //window.location = "/"; // temporary solution
       toast.success("Data Mobil Berhasil Ditambahkan");
       navigate("/");
     } catch (error) {
@@ -127,12 +123,8 @@ export const UpdateCar =
 
     try {
       const response = await axios.request(config);
-
       console.log(JSON.stringify(response.data));
 
-      // redirect to home
-      // navigate("/"); // it will be not consistent, so alternative we use window until we used the state management
-      //window.location = "/"; // temporary solution
       toast.success(`Car dengan id: ${id} berhasil diupdate`);
       navigate("/");
     } catch (error) {

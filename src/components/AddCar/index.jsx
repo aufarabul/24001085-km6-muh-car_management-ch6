@@ -15,7 +15,6 @@ function addCar() {
   const [year, setYear] = useState("");
   const [image, setImage] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const onSubmit = async (e) => {
     e.preventDefault();

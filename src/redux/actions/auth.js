@@ -71,10 +71,6 @@ export const register =
       const { token } = data;
       localStorage.setItem("token", token);
 
-      // redirect to home
-      // navigate("/"); // it will be not consistent, so alternative we use window until we used the state management
-      //window.location = "/"; // temporary solution
-
       navigate("/");
     } catch (error) {
       toast.error(error?.response?.data?.message);

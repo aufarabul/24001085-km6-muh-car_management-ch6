@@ -26,44 +26,6 @@ function Register() {
     // dispatch the register action
     dispatch(register(navigate, name, email, password, photo, setIsLoading));
   };
-  // let data = new FormData();
-  // data.append("email", email);
-  // data.append("password", password);
-  // data.append("name", name);
-  // if (photo) {
-  //   data.append("photo", photo);
-  // }
-
-  //   let config = {
-  //     method: "post",
-  //     url: `${import.meta.env.VITE_BACKEND_API}/api/auth/register`,
-  //     data: data,
-  //   };
-
-  //   try {
-  //     const response = await axios.request(config);
-
-  //     // get and save the token to local storage
-  //     const { data } = response.data;
-  //     const { token } = data;
-  //     localStorage.setItem("token", token);
-
-  //     // redirect to home
-  //     // navigate("/"); // it will be not consistent, so alternative we use window until we used the state management
-  //     //window.location = "/"; // temporary solution
-
-  //     setIsLoggedIn(true);
-  //     window.location = "/";
-  //   } catch (error) {
-  //     toast.error(error?.response?.data?.message);
-  //   }
-
-  //   setIsLoading(false);
-  // };
-  // useEffect(() => {
-  //   const storedToken = localStorage.getItem("token");
-  //   setIsLoggedIn(!!storedToken);
-  // }, []);
 
   return (
     <>

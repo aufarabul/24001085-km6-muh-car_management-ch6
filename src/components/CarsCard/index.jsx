@@ -15,7 +15,6 @@ const CarsCard = ({ car }) => {
           src={car.image}
           key={car.id}
         />
-        {/* Replace with car image URL */}
         <Card.Body>
           <Card.Subtitle className="mb-2 text-muted">
             Id Car : {car.id}
@@ -23,9 +22,7 @@ const CarsCard = ({ car }) => {
           <Card.Title>
             {car.manufacture} {car.model}
           </Card.Title>
-          {/* Replace with car property for name */}
           <Card.Text>{car.year}</Card.Text>
-          {/* Replace with car description (optional) */}
           <Button variant="primary">See Details</Button>
         </Card.Body>
       </Card>
